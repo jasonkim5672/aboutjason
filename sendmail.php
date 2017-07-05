@@ -1,5 +1,5 @@
 <?php
-
+$charset = "UTF-8";
 $mail_from = trim($_POST['email']); // 보내는 사람메일주소 
 $mail_to = "jasonkim5672@gmail.com"; // 받는사람 메일주소 
 
