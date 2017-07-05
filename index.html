@@ -196,32 +196,11 @@ function check() {
 		form.email.focus();
 		return false;
 	}
-	send_mail();
+	form.submit();
 	
 }
 
-function send_mail(){
-	form = document.sendmail;
 
-	$charset = "UTF-8";
-$mail_from = trim(form.email); // 보내는 사람메일주소 
-$mail_to = "jasonkim5672@gmail.com"; // 받는사람 메일주소 
-
-$mailheaders.= "Return-Path : ". trim($_POST['form_user'])." \r\n";	//리턴되는 메일을 받는 주소
-$mailheaders.= "From : SendMailTest \r\n";
-$Headers .= "from: 폼메일 <formmail> \r\n";
-$Headers .= "Content-Type: text/html; charset=EUC-KR \r\n";
-$Name = trim(form.name);
-$Name =  "=?$charset?B?".base64_encode($Name)."?=";
-
-$subject =  "[About-Jason] ::".$Name." ::".trim(form.subject);
-$contents = form.message;
-
-mail($mail_to,$subject,$contents,$Headers,$mail_from);
-		alert('메일이 성공적으로 전송되었습니다.');
-	
-	
-}
 
 </script>
 			<script src="assets/js/skel.min.js"></script>
