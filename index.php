@@ -136,10 +136,14 @@
 							<h2 class="major">Get in touch</h2>
 							<p>연락을 주실떄에는 아래에 입력하여 보내주세요. 답변 받으실 메일을 정확하게 써주셔야 답변 드릴 수 있습니다.<br>
 							please make sure your e-mail address to get reply.</p>
-							<form method="post" action="#">
+							<form name="sendmail" method="post" action="sendmail.php">
 								<div class="field">
 									<label for="name">Name</label>
 									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field">
+									<label for="subject">Subject</label>
+									<input type="text" name="subject" id="subject" />
 								</div>
 								<div class="field">
 									<label for="email">Email</label>
@@ -150,7 +154,7 @@
 									<textarea name="message" id="message" rows="4"></textarea>
 								</div>
 								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
+									<li><input type="button" value="Send Message" onclick="check();" /></li>
 								</ul>
 							</form>
 							<ul class="contact">
@@ -173,6 +177,29 @@
 			</div>
 
 		<!-- Scripts -->
+		<script>
+function check() {
+	form = document.sendmail;
+	if ( form.name.value == '' ) {
+		alert('이름을 입력해주세요.');
+		form.name.focus();
+		return false;
+	}
+	if ( form.subject.value == '' ) {
+		alert('제목을 입력해주세요.');
+		form.subject.focus();
+		return false;
+	}
+	
+	if ( form.email.value == '' ) {
+		alert('회신받을 이메일을 입력해주세요');
+		form.email.focus();
+		return false;
+	}
+
+	form.submit();
+}
+</script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
